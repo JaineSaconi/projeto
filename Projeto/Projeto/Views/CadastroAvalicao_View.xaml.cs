@@ -89,7 +89,6 @@ namespace Projeto.Views
             {
                 await firebaseHelperAvaliacao.addAvalicao(id, data, avaliacao.Clientes);
                 await DisplayAlert("Aviso", "Avaliação adicionado", "OK");
-                await Navigation.PushAsync(new AvalicaoMensal_View());
             }
 
         }
