@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
+             mc:Ignorable="d"
+             x:Class="Projeto.Views.CadastroAvalicao_View"
+             Title="Cadastrar Avaliação">
+    <ContentPage.Content>
+        
+            <StackLayout Orientation="Vertical">
+                <Label Text="Data da avaliação: "  Margin="40,40,40,0" TextColor="Black" FontFamily="Bold"/>
+                <Entry x:Name="DataAvaliacao" Margin="40,0,40,10"  Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <behaviorPack:MaskedBehavior Mask="XX/XX/XX" />
+                    </Entry.Behaviors>
+                </Entry>
+
+
+
+            <ListView x:Name="ListCliente" Margin="40,0"  HasUnevenRows="True" 
+                         SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Nome}" FontAttributes="Bold" />
+                                    <Label Text="{Binding NotaCategoria}" TextColor="Gray" />
+                                </StackLayout>                                
+                                <Button  x:Name="adicionar" Text="Adicionar"
+                                   BorderColor="Silver"
+                                   FontSize="Small"
+                                   TextColor="White"
+                                   BackgroundColor="#3399ff"
+                                   VerticalOptions="Center"
+                                   Clicked="Handle_Clicked" 
+                                    CommandParameter="{Binding .}"/>
+                            </StackLayout>
+                        </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button x:Name="btnCadastrar" Text="Selecionar" TextColor="White"
+                        BorderColor="#0043E0" BackgroundColor="#0043E0" CornerRadius="6"
+                        WidthRequest="100" HeightRequest="50" Margin="40" Clicked="btncadastrar_clicked"/>
+        
+        </StackLayout>
+       
+    </ContentPage.Content>
+</ContentPage>

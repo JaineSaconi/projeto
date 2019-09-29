@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
+             mc:Ignorable="d"
+             x:Class="Projeto.Views.CadastroCliente_View"
+             Title="Cadastrar Cliente">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Nome: "  Margin="40,40,40,0" TextColor="Black" FontFamily="Bold"/>
+            <Entry  x:Name="entNome" Margin="40,0,40,10" />
+
+            <Label Text="Nome Do Responsável: "  Margin="40,20,40,0" TextColor="Black" FontFamily="Bold"/>
+            <Entry x:Name="entResNome"  Margin="40,0,40,10" />
+
+            <Label Text="Data em que se tornou cliente: "  Margin="40,20,40,0" TextColor="Black" FontFamily="Bold" />
+            <Entry  x:Name="entData" Margin="40,0,40,10"  Keyboard="Numeric">
+                <Entry.Behaviors>
+                    <behaviorPack:MaskedBehavior Mask="XX/XX/XX" />
+                </Entry.Behaviors>
+            </Entry>
+
+            <Label Text="Nota dada na ultima avaliação? (Deixe em branco caso não tenha realizado)"  Margin="40,20,40,0" TextColor="Black" FontFamily="Bold"/>
+            <Entry x:Name="entNota"  Margin="40,0,40,10" Placeholder="Indicador" Keyboard="Numeric"/>
+
+            <Button x:Name="btnCadastrar" Text="Cadastrar" TextColor="White" BorderColor="#0043E0" BackgroundColor="#0043E0" CornerRadius="6" WidthRequest="100" HeightRequest="50" Margin="40" Clicked="btnCadastrar_Clicked"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
